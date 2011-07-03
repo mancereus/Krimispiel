@@ -12,11 +12,10 @@ import de.db12.krimispiel.model.mover.Spieler;
 import de.db12.krimispiel.model.mover.Staatsanwalt;
 
 public class KrimiGame extends BaseGame {
-	private Board board;
-	private List<Mover> mover;
 
 	@Override
 	public void init() {
+		board = new PyramidBoard();
 		mover = Lists.newArrayList();
 		mover.add(new Kommisar());
 		mover.add(new Ermittler());

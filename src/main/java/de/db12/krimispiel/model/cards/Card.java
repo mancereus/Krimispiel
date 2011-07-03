@@ -1,4 +1,5 @@
-package de.db12.krimispiel.model;
+package de.db12.krimispiel.model.cards;
+
 
 public class Card implements Comparable<Card> {
 	String name;

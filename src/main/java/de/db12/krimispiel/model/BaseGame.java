@@ -5,6 +5,8 @@ import java.util.List;
 import de.db12.krimispiel.model.mover.Mover;
 
 public abstract class BaseGame implements Game {
+	protected Board board;
+	protected List<Mover> mover;
 
 	protected int round = 0;
 	private int phasecount = 0;
@@ -24,7 +26,7 @@ public abstract class BaseGame implements Game {
 			initRound();
 			while (!isRoundFinished()) {
 				for (Mover mv : mover) {
-					mv.move();
+					mv.move(board);
 					if (isFinished())
 						break;
 				}

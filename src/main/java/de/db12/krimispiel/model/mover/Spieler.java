@@ -66,29 +66,32 @@ public class Spieler implements Mover {
 	@Override
 	public void move(Board board) {
 		List<CardField> ff = board.getFreeFields();
-		int minmin = Integer.MAX_VALUE;
+		int min = board.getNextMinValue();
 		CardField minField = null;
-		for (CardField f : ff) {
-			int min = f.getMinValueAllowed();
-			if (min < minmin) {
-				minField = f;
-				minmin = min;
-			}
-		}
-		if (minField != null) {
-			Card minCard = hand.takeMinCard(minmin);
-			if (minCard != null)
-				placeCard(board, minField, minCard);
+		if (!ff.isEmpty())
+			minField = ff.get(0);
+		// for (CardField f : ff) {
+		// if (min < minmin) {
+		// minField = f;
+		// minmin = min;
+		// }
+		// }
+		// if (minField != null) {
+		Card minCard = hand.takeMinCard(min);
+		if (minCard != null && minCard.getValue() > min) {
+			placeCard(minField, minCard);
 		} else {
-			log.warn("no Field free");
+			trashCard(board.getTrash(), minCard);
 		}
 
 	}
 
-	private void placeCard(Board board, CardField minField, Card minCard) {
-		hand.moveCardTo(minCard, board);
-		minField.setCard(minCard);
-		
+	private void trashCard(CardList trash, Card minCard) {
+		hand.moveCardTo(minCard, trash);		
+	}
+
+	private void placeCard(CardField minField, Card minCard) {
+		hand.moveCardTo(minCard, minField);
 	}
 
 	public String getName() {

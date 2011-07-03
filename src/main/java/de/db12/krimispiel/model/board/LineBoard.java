@@ -10,27 +10,20 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 
 import de.db12.krimispiel.model.cards.Card;
+import de.db12.krimispiel.model.cards.CardList;
 
 public class LineBoard implements Board {
 	private static final Logger log = LoggerFactory.getLogger(LineBoard.class);
 
-	protected List<Card> cm = Lists.newArrayList();
+	protected List<CardField> cm = Lists.newArrayList();
+	private CardList trash = new CardList();
 	protected int maxval;
 
 	@Override
 	public List<CardField> getFreeFields() {
-		return Lists.newArrayList(new CardField(maxval));
-	}
-
-	@Override
-	public void addCard(Card c) {
-		if (c.getValue() <= maxval) {
-			log.info("### trash card {}", c);
-			return;
-		}
-		maxval = c.getValue();
-		log.info("place card {}", c);
-		cm.add(c);
+		CardField cardField = new CardField(this);
+		cm.add(cardField);
+		return Lists.newArrayList(cardField);
 	}
 
 	public String toString() {
@@ -42,5 +35,14 @@ public class LineBoard implements Board {
 	@Override
 	public int getNextMinValue() {
 		return maxval + 1;
-	};
+	}
+
+	public CardList getTrash() {
+		return trash;
+	}
+
+	public void setTrash(CardList trash) {
+		this.trash = trash;
+	}
+
 }

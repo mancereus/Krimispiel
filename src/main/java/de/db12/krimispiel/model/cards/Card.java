@@ -17,5 +17,9 @@ public class Card implements Comparable<Card> {
 	public String toString() {
 		return value + ":00";
 	}
+
+	public int getValue() {
+		return value;
+	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import de.db12.krimispiel.model.board.LineBoard;
 import de.db12.krimispiel.model.board.PyramidBoard;
 import de.db12.krimispiel.model.mover.Ermittler;
 import de.db12.krimispiel.model.mover.Kommisar;
@@ -16,7 +17,7 @@ public class KrimiGame extends BaseGame {
 
 	@Override
 	public void init() {
-		board = new PyramidBoard();
+		board = new LineBoard();
 		mover = Lists.newArrayList();
 		mover.add(new Kommisar());
 		mover.add(new Ermittler());

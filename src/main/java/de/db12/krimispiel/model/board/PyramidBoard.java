@@ -1,4 +1,4 @@
-package de.db12.krimispiel.model;
+package de.db12.krimispiel.model.board;
 
 import java.util.List;
 import java.util.Map;

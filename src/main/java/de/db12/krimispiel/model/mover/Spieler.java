@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 
-import de.db12.krimispiel.model.Board;
-import de.db12.krimispiel.model.CardField;
+import de.db12.krimispiel.model.board.Board;
+import de.db12.krimispiel.model.board.CardField;
 import de.db12.krimispiel.model.cards.Card;
 import de.db12.krimispiel.model.cards.CardList;
 import de.db12.krimispiel.model.cards.Hand;

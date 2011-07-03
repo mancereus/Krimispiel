@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import de.db12.krimispiel.model.board.PyramidBoard;
 import de.db12.krimispiel.model.mover.Ermittler;
 import de.db12.krimispiel.model.mover.Kommisar;
 import de.db12.krimispiel.model.mover.Mover;

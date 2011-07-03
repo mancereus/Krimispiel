@@ -2,6 +2,7 @@ package de.db12.krimispiel.model;
 
 import java.util.List;
 
+import de.db12.krimispiel.model.board.Board;
 import de.db12.krimispiel.model.mover.Mover;
 
 public abstract class BaseGame implements Game {

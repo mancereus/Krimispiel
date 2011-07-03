@@ -5,5 +5,5 @@ import de.db12.krimispiel.model.board.Board;
 public interface Mover {
 	public void move(Board board);
 
-	void initRound(int round);
+	void initRound(int round, int minVal);
 }

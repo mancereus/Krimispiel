@@ -18,10 +18,9 @@ public class Hand<T> extends CardList{
 		sort();
 		for (Card c : cs) {
 			if(c.value >= min)
-				cs.remove(c);
 				return c;
 		}
-		return null;
+		return cs.get(0);
 		
 	}
 

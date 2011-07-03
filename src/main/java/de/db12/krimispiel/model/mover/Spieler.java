@@ -32,14 +32,14 @@ public class Spieler implements Mover {
 	}
 
 	@Override
-	public void initRound(int round) {
+	public void initRound(int round, int minVal) {
 		drawCards(6 - round);
 		// log.info("round {}: " + toString());
-		putBack(round);
+		stripToThreeCards(round, minVal);
 		log.info("round {}: " + toString(), round);
 	}
 
-	private void putBack(int round) {
+	private void stripToThreeCards(int round, int minVal) {
 		int cardsback = 3 - round;
 		hand.sort();
 		for (int i = 0; i < cardsback; i++) {
@@ -78,10 +78,17 @@ public class Spieler implements Mover {
 		if (minField != null) {
 			Card minCard = hand.takeMinCard(minmin);
 			if (minCard != null)
-				board.placeCard(minField, minCard);
-
+				placeCard(board, minField, minCard);
+		} else {
+			log.warn("no Field free");
 		}
 
+	}
+
+	private void placeCard(Board board, CardField minField, Card minCard) {
+		hand.moveCardTo(minCard, board);
+		minField.setCard(minCard);
+		
 	}
 
 	public String getName() {

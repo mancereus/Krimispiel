@@ -18,11 +18,6 @@ public class PyramidBoard implements Board {
 	protected Map<Integer, List<Card>> cm = Maps.newHashMap();
 
 	@Override
-	public void placeCard(CardField f, Card c) {
-		log.info("place card {}", c);
-	}
-
-	@Override
 	public List<CardField> getFreeFields() {
 		return Lists.newArrayList(new CardField(3));
 	}
@@ -30,6 +25,12 @@ public class PyramidBoard implements Board {
 	@Override
 	public void addCard(Card c) {
 		throw new RuntimeException("not needed");
+	}
+
+	@Override
+	public int getNextMinValue() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

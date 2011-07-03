@@ -7,8 +7,8 @@ import de.db12.krimispiel.model.cards.CardHolder;
 
 public interface Board extends CardHolder{
 
-	void placeCard(CardField f, Card c);
-
 	List<CardField> getFreeFields();
+
+	int getNextMinValue();
 
 }

@@ -16,8 +16,7 @@ public class CardField implements CardHolder {
 	private Card card;
 	private List<CardField> parents = Lists.newArrayList();
 	private Board board;
-	
-	
+
 	public Card getCard() {
 		return card;
 	}
@@ -67,6 +66,17 @@ public class CardField implements CardHolder {
 		log.info("place card {}", c);
 		setCard(c);
 
+	}
+
+	public int getNeededValue() {
+		if (parents == null || parents.size() == 0)
+			return 0;
+		int min = Integer.MAX_VALUE;
+		for (CardField parent : parents) {
+			if (parent.getCard() != null)
+				min = Math.min(parent.getCard().getValue(), min);
+		}
+		return min;
 	}
 
 }

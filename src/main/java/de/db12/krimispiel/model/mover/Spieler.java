@@ -1,5 +1,6 @@
 package de.db12.krimispiel.model.mover;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -65,29 +66,30 @@ public class Spieler implements Mover {
 
 	@Override
 	public void move(Board board) {
-		List<CardField> ff = board.getFreeFields();
 		int min = board.getNextMinValue();
-		CardField minField = null;
-		if (!ff.isEmpty())
-			minField = ff.get(0);
-		// for (CardField f : ff) {
-		// if (min < minmin) {
-		// minField = f;
-		// minmin = min;
-		// }
-		// }
-		// if (minField != null) {
-		Card minCard = hand.takeMinCard(min);
-		if (minCard != null && minCard.getValue() > min) {
-			placeCard(minField, minCard);
-		} else {
-			trashCard(board.getTrash(), minCard);
+		Card minCard = null;
+		for (Card card : hand) {
+			if (card.getValue() >= min) {
+				minCard = card;
+				break;
+			}
 		}
+		if (minCard == null) {
+			trashCard(board.getTrash(), hand.get(hand.size() -1));
+		} else {
+			List<CardField> ff = board.getFreeFields();
+			for (CardField cardField : ff) {
+				if (cardField.getNeededValue() <= minCard.getValue()) {
+					placeCard(cardField, minCard);
+					break;
+				}
 
+			}
+		}
 	}
 
 	private void trashCard(CardList trash, Card minCard) {
-		hand.moveCardTo(minCard, trash);		
+		hand.moveCardTo(minCard, trash);
 	}
 
 	private void placeCard(CardField minField, Card minCard) {

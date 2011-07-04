@@ -9,7 +9,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 
-import de.db12.krimispiel.model.cards.Card;
 import de.db12.krimispiel.model.cards.CardList;
 
 public class LineBoard implements Board {
@@ -17,7 +16,6 @@ public class LineBoard implements Board {
 
 	protected List<CardField> cm = Lists.newArrayList();
 	private CardList trash = new CardList();
-	protected int maxval;
 
 	@Override
 	public List<CardField> getFreeFields() {
@@ -34,6 +32,11 @@ public class LineBoard implements Board {
 
 	@Override
 	public int getNextMinValue() {
+		int maxval = 0;
+		for (CardField cf : cm) {
+			if (cf.getCard() != null)
+				maxval = cf.getCard().getValue();
+		}
 		return maxval + 1;
 	}
 

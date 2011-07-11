@@ -6,6 +6,19 @@
 	<classpathentry kind="lib" path="lib/runtime/guava-r09.jar"/>
 	<classpathentry kind="lib" path="lib/runtime/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/runtime/slf4j-simple-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/cglib-2.2.1-v20090111.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="lib/test/guice-assistedinject-3.0.jar"/>
+	<classpathentry kind="lib" path="lib/test/hamcrest-core-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/test/jukito-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit-benchmarks-0.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/test/mockito-all-1.8.5.jar"/>
+	<classpathentry kind="lib" path="lib/test/mockito-core-1.8.5.jar"/>
+	<classpathentry kind="lib" path="lib/test/objenesis-1.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path=".target/classes"/>
 </classpath>

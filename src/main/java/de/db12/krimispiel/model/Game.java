@@ -7,6 +7,8 @@ import de.db12.krimispiel.model.mover.Mover;
 public interface Game {
 	void init();
 
+	void start();
+
 	void initRound();
 
 	List<Mover> getMover();
@@ -16,4 +18,5 @@ public interface Game {
 	Mover getWinner();
 	
 	void showWin(Mover mv);
+
 }

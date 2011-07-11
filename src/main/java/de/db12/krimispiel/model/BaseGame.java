@@ -5,12 +5,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
+
 import de.db12.krimispiel.model.board.Board;
 import de.db12.krimispiel.model.mover.Mover;
 import de.db12.krimispiel.model.mover.Spieler;
 
 public abstract class BaseGame implements Game {
-	private static final Logger log = LoggerFactory.getLogger(Spieler.class);
+	private static final Logger log = LoggerFactory.getLogger(BaseGame.class);
 
 	protected Board board;
 	protected List<Mover> mover;
@@ -18,6 +20,12 @@ public abstract class BaseGame implements Game {
 	protected int round = 0;
 	private int phasecount = 0;
 
+	@Inject
+	public BaseGame(Board board) {
+		this.board = board;
+	}
+	
+	@Override
 	public void start() {
 		init();
 		while (!isFinished()) {
